@@ -1,8 +1,8 @@
 node_modules/
 dist/
+documentation/
+coverage/
 
 .DS_Store
 
 .env
-
-documentation
