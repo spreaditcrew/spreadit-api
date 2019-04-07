@@ -42,3 +42,12 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Documentation
+
+Code documentation:
+```bash
+$ npm run docs
+```
+
+
