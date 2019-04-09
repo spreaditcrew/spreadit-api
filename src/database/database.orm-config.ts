@@ -8,12 +8,13 @@ export function getOrmConfig() {
     username: envConfig.POSTGRES_USER,
     password: envConfig.POSTGRES_PASSWORD,
     database: envConfig.POSTGRES_DB,
+    host: envConfig.POSTGRES_HOST,
   };
 
   if (process.env.NODE_ENV !== 'test') {
     ormConfig = {
       type: 'postgres',
-      host: 'localhost',
+      host: settings.host,
       port: 5432,
       username: settings.username,
       password: settings.password,
@@ -24,8 +25,8 @@ export function getOrmConfig() {
   } else {
     ormConfig = {
       type: 'postgres',
-      host: 'localhost',
-      port: 5444,
+      host: 'db-e2e',
+      port: 5432,
       username: 'test',
       password: 'test',
       database: 'test',
