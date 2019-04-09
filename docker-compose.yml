@@ -17,6 +17,8 @@ services:
     restart: always
     ports:
       - 8080:8080
+    depends_on:
+      - db
   db-e2e:
     image: postgres:11.1-alpine
     restart: always
@@ -32,3 +34,5 @@ services:
     ports:
       - '3005:3000'
       - '5500:5500'
+    depends_on:
+      - db
