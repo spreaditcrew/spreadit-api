@@ -1,0 +1,23 @@
+container:
+  image: node:10.13-alpine
+
+check_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm install
+  test_script: ./node_modules/.bin/jest
+
+lint_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm install
+  test_script: ./node_modules/.bin/tslint -p tsconfig.json -c tslint.json
+
+format_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm install
+  test_script: ./node_modules/.bin/prettier --check "src/**/*.ts"
