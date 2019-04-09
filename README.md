@@ -4,17 +4,34 @@ Application which is created on [Nest](https://github.com/nestjs/nest) framework
 
 ## Requirements
 
-  - docker
-  - npm
+- docker
+- npm
 
 ## Installation
 
-Copy file `.dist.env`, create `.env` and set variables 
+Copy file `.env.dist`, create `.env` and set variables
 
 ```bash
-$ npm install
+$ cp .dist.env .env
+```
 
-$ docker-compose up -d
+For development purposes copy `docker-compose.override.yml.dist` to `docker-compose.override.yml`
+
+```bash
+$ cp docker-compose.override.yml.dist docker-compose.override.yml
+```
+
+Build application image
+
+```bash
+$ npm run docker-build
+```
+
+To synchronize node_modules folder from docker container to host, you need to perform npm install from inside the container, while having the docker-compose.override.yml present:
+
+```bash
+$ npm run shell
+$ npm install
 ```
 
 ## Running the app
@@ -46,8 +63,7 @@ $ npm run test:cov
 ## Documentation
 
 Code documentation:
+
 ```bash
 $ npm run docs
 ```
-
-
