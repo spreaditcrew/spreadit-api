@@ -4,4 +4,4 @@ services:
   app:
     volumes: &volumes
       - ./:/app:delegated
-    command: ['bash', '-c', './node_modules/.bin/nodemon']
+    command: ['npm run start:dev']

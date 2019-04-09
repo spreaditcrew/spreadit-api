@@ -12,6 +12,7 @@
     "start:debug": "docker-compose run --rm app ./node_modules/.bin/nodemon --config nodemon-debug.json",
     "prestart:prod": "docker-compose run --rm app ./node_modules/.bin/rimraf dist && npm run build",
     "start:prod": "docker-compose run --rm app node dist/main.js",
+    "stop": "docker-compose stop",
     "lint": "docker-compose run --rm app ./node_modules/.bin/tslint -p tsconfig.json -c tslint.json",
     "test": "docker-compose run --rm app ./node_modules/.bin/jest",
     "test:watch": "docker-compose run --rm app ./node_modules/.bin/jest --watch",
@@ -19,7 +20,7 @@
     "test:debug": "docker-compose run --rm app node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "docker-compose run --rm app ./node_modules/.bin/jest --config ./test/jest-e2e.json",
     "shell": "docker-compose run --rm app bash",
-    "docs": "docker-compose run --rm app npx compodoc -p tsconfig.json -s -r 5500 -n 'SpreadIT cms API' -t -o",
+    "docs": "npx compodoc -p tsconfig.json -s -r 5500 -n 'SpreadIT cms API' -t -o",
     "docker-build": "bash -c 'docker build -t spread-it-api:latest .'"
   },
   "dependencies": {
