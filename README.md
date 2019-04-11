@@ -37,14 +37,14 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# development (with docker-compose.override.yml present)
+$ npm run docker:start
 
-# watch mode
-$ npm run start:dev
+# production mode (with docker-compose.override.yml)
+$ npm run docker:start
 
-# production mode
-$ npm run start:prod
+# stopping the application
+$ npm run docker:stop
 ```
 
 ## Test

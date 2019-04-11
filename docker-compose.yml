@@ -19,20 +19,12 @@ services:
       - 8080:8080
     depends_on:
       - db
-  db-e2e:
-    image: postgres:11.1-alpine
-    restart: always
-    environment:
-      POSTGRES_USER: test
-      POSTGRES_DB: test
-      POSTGRES_PASSWORD: test
-    ports:
-      - 5444:5432
   app:
     image: spread-it-api:latest
     build: .
     ports:
-      - '3005:3000'
+      - '3000:3000'
       - '5500:5500'
     depends_on:
       - db
+    command: ['npm', 'run', 'start']
