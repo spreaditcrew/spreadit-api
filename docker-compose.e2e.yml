@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  db:
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_DB: test
+      POSTGRES_PASSWORD: test
+    ports:
+      - 5432
