@@ -4,4 +4,4 @@ services:
   app:
     volumes: &volumes
       - ./:/app:delegated
-    command: ['npm run start:dev']
+    command: ['npm', 'run', 'start:dev']
