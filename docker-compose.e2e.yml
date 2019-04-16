@@ -1,9 +1,19 @@
 version: '3.2'
 services:
-  db:
+  app:
+    depends_on:
+      - db-e2e
+    networks:
+      - e2e_network
+  db-e2e:
+    image: postgres:11.1-alpine
     environment:
       POSTGRES_USER: test
       POSTGRES_DB: test
       POSTGRES_PASSWORD: test
     ports:
-      - 5432
+      - 5444:5432
+    networks:
+      - e2e_network
+networks:
+  e2e_network:
